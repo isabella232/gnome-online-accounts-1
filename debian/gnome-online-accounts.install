@@ -3,6 +3,5 @@ usr/lib/gnome-online-accounts/goa-daemon
 usr/lib/gnome-online-accounts/goa-identity-service
 usr/share/dbus-1/services/org.gnome.Identity.service
 usr/share/dbus-1/services/org.gnome.OnlineAccounts.service
-usr/share/goa-1.0/scripts/lpa_helper.py
 usr/share/icons
 usr/share/man
