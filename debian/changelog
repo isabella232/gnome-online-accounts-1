@@ -1,8 +1,20 @@
-gnome-online-accounts (3.31.90-1ubuntu2) disco; urgency=medium
+gnome-online-accounts (3.32.0-1ubuntu1pop1) disco; urgency=medium
 
-  * Rebase on upstream, removing Canonical's LP & SSO patches
+  * New upstream release
 
- -- Michael Aaron Murphy <michael@system76.com>  Wed, 20 Mar 2019 11:27:28 -0600
+ -- Michael Aaron Murphy <michael@system76.com>  Tue, 09 Apr 2019 09:31:02 -0600
+
+gnome-online-accounts (3.32.0-1ubuntu1) disco; urgency=medium
+
+  * Update to the stable version, based on the Debian update
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 03 Apr 2019 17:09:24 +0200
+
+gnome-online-accounts (3.32.0-1) experimental; urgency=medium
+
+  * New upstream release
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Wed, 03 Apr 2019 17:03:56 +0200
 
 gnome-online-accounts (3.31.90-1ubuntu1) disco; urgency=medium
 
@@ -54,6 +66,12 @@ gnome-online-accounts (3.30.1-2) unstable; urgency=medium
       identifiable information
 
  -- Jeremy Bicha <jbicha@debian.org>  Sat, 09 Feb 2019 16:55:02 -0500
+
+gnome-online-accounts (3.31.90-1ubuntu2) disco; urgency=medium
+
+  * Rebase on upstream, removing Canonical's LP & SSO patches
+
+ -- Michael Aaron Murphy <michael@system76.com>  Wed, 20 Mar 2019 11:27:28 -0600
 
 gnome-online-accounts (3.30.1-1ubuntu1) disco; urgency=medium
 
@@ -190,7 +208,7 @@ gnome-online-accounts (3.27.92-1ubuntu3) bionic; urgency=medium
 gnome-online-accounts (3.27.92-1ubuntu2) bionic; urgency=medium
 
   * debian/patches/0002-livepatch-auth:
-    clear the otp text entry when a second otp is required (LP: #1757444) 
+    clear the otp text entry when a second otp is required (LP: #1757444)
 
  -- Andrea Azzarone <andrea.azzarone@canonical.com>  Wed, 21 Mar 2018 15:19:11 +0100
 
