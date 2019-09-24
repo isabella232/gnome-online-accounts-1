@@ -102,6 +102,11 @@ libgoa_backend_1_0_la_SOURCES =						\
 	$(top_srcdir)/src/goaidentity/goaidentitymanagererror.c		\
 	$(NULL)
 
+if BUILD_FEDORA
+libgoa_backend_1_0_la_SOURCES +=					\
+	goafedoraprovider.h		goafedoraprovider.c
+endif
+
 if BUILD_KERBEROS
 libgoa_backend_1_0_la_SOURCES +=					\
 	goakerberosprovider.h		goakerberosprovider.c
@@ -189,6 +194,7 @@ EXTRA_DIST +=								\
 
 goadleynaservermanager.h goadleynaservermanager.c: goadleynaservermanager.xml
 	$(AM_V_GEN)gdbus-codegen						\
+		--c-generate-autocleanup all					\
 		--c-namespace DleynaServer					\
 		--generate-c-code goadleynaservermanager			\
 		--interface-prefix com.intel.dLeynaServer.			\
@@ -196,6 +202,7 @@ goadleynaservermanager.h goadleynaservermanager.c: goadleynaservermanager.xml
 
 goadleynaservermediadevice.h goadleynaservermediadevice.c: goadleynaservermediadevice.xml
 	$(AM_V_GEN)gdbus-codegen								\
+		--c-generate-autocleanup all							\
 		--c-namespace DleynaServer							\
 		--generate-c-code goadleynaservermediadevice					\
 		--interface-prefix com.intel.dLeynaServer.					\

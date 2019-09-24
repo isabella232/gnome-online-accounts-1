@@ -19,6 +19,7 @@ override_dh_auto_configure:
 		--disable-media-server \
 		--enable-facebook \
 		--enable-flickr \
+		--disable-fedora \
 		--enable-windows-live \
 		--enable-google \
 		--enable-owncloud \

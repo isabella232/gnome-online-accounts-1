@@ -88,8 +88,9 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-@BUILD_KERBEROS_TRUE@libexec_PROGRAMS = goa-identity-service$(EXEEXT)
-@BUILD_KERBEROS_FALSE@am__append_1 = $(identity_sources)
+@BUILD_IDENTITY_SERVICE_TRUE@libexec_PROGRAMS =  \
+@BUILD_IDENTITY_SERVICE_TRUE@	goa-identity-service$(EXEEXT)
+@BUILD_IDENTITY_SERVICE_FALSE@am__append_1 = $(identity_sources)
 subdir = src/goaidentity
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/m4/ax_append_compile_flags.m4 \
@@ -152,18 +153,17 @@ am__objects_4 = $(am__objects_3) \
 	goa_identity_service-goakerberosidentityinquiry.$(OBJEXT) \
 	goa_identity_service-goakerberosidentitymanager.$(OBJEXT) \
 	goa_identity_service-main.$(OBJEXT) $(am__objects_1)
-@BUILD_KERBEROS_TRUE@am_goa_identity_service_OBJECTS = goa_identity_service-goaidentityenumtypes.$(OBJEXT) \
-@BUILD_KERBEROS_TRUE@	$(am__objects_2) $(am__objects_4) \
-@BUILD_KERBEROS_TRUE@	$(am__objects_1)
+@BUILD_IDENTITY_SERVICE_TRUE@am_goa_identity_service_OBJECTS = goa_identity_service-goaidentityenumtypes.$(OBJEXT) \
+@BUILD_IDENTITY_SERVICE_TRUE@	$(am__objects_2) $(am__objects_4) \
+@BUILD_IDENTITY_SERVICE_TRUE@	$(am__objects_1)
 goa_identity_service_OBJECTS = $(am_goa_identity_service_OBJECTS)
 am__DEPENDENCIES_1 =
-@BUILD_KERBEROS_TRUE@goa_identity_service_DEPENDENCIES =  \
-@BUILD_KERBEROS_TRUE@	$(top_builddir)/src/goa/libgoa-1.0.la \
-@BUILD_KERBEROS_TRUE@	$(am__DEPENDENCIES_1) \
-@BUILD_KERBEROS_TRUE@	$(am__DEPENDENCIES_1) \
-@BUILD_KERBEROS_TRUE@	$(am__DEPENDENCIES_1) \
-@BUILD_KERBEROS_TRUE@	$(am__DEPENDENCIES_1) \
-@BUILD_KERBEROS_TRUE@	$(am__DEPENDENCIES_1)
+@BUILD_IDENTITY_SERVICE_TRUE@goa_identity_service_DEPENDENCIES = $(top_builddir)/src/goa/libgoa-1.0.la \
+@BUILD_IDENTITY_SERVICE_TRUE@	$(am__DEPENDENCIES_1) \
+@BUILD_IDENTITY_SERVICE_TRUE@	$(am__DEPENDENCIES_1) \
+@BUILD_IDENTITY_SERVICE_TRUE@	$(am__DEPENDENCIES_1) \
+@BUILD_IDENTITY_SERVICE_TRUE@	$(am__DEPENDENCIES_1) \
+@BUILD_IDENTITY_SERVICE_TRUE@	$(am__DEPENDENCIES_1)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
@@ -493,30 +493,30 @@ identity_dbus_built_sources = \
 	org.gnome.Identity.c		org.gnome.Identity.h	\
 	$(NULL)
 
-@BUILD_KERBEROS_TRUE@goa_identity_service_SOURCES = \
-@BUILD_KERBEROS_TRUE@	goaidentityenumtypes.h		goaidentityenumtypes.c	\
-@BUILD_KERBEROS_TRUE@	$(identity_dbus_built_sources)				\
-@BUILD_KERBEROS_TRUE@	$(identity_sources)					\
-@BUILD_KERBEROS_TRUE@	$(NULL)
+@BUILD_IDENTITY_SERVICE_TRUE@goa_identity_service_SOURCES = \
+@BUILD_IDENTITY_SERVICE_TRUE@	goaidentityenumtypes.h		goaidentityenumtypes.c	\
+@BUILD_IDENTITY_SERVICE_TRUE@	$(identity_dbus_built_sources)				\
+@BUILD_IDENTITY_SERVICE_TRUE@	$(identity_sources)					\
+@BUILD_IDENTITY_SERVICE_TRUE@	$(NULL)
 
-@BUILD_KERBEROS_TRUE@goa_identity_service_CFLAGS = \
-@BUILD_KERBEROS_TRUE@	$(GLIB_CFLAGS) 						\
-@BUILD_KERBEROS_TRUE@	$(GTK_CFLAGS)						\
-@BUILD_KERBEROS_TRUE@	$(KRB5_CFLAGS)						\
-@BUILD_KERBEROS_TRUE@	$(GCR_CFLAGS)						\
-@BUILD_KERBEROS_TRUE@	$(NULL)
+@BUILD_IDENTITY_SERVICE_TRUE@goa_identity_service_CFLAGS = \
+@BUILD_IDENTITY_SERVICE_TRUE@	$(GLIB_CFLAGS) 						\
+@BUILD_IDENTITY_SERVICE_TRUE@	$(GTK_CFLAGS)						\
+@BUILD_IDENTITY_SERVICE_TRUE@	$(KRB5_CFLAGS)						\
+@BUILD_IDENTITY_SERVICE_TRUE@	$(GCR_CFLAGS)						\
+@BUILD_IDENTITY_SERVICE_TRUE@	$(NULL)
 
-@BUILD_KERBEROS_TRUE@goa_identity_service_LDADD = \
-@BUILD_KERBEROS_TRUE@	$(top_builddir)/src/goa/libgoa-1.0.la			\
-@BUILD_KERBEROS_TRUE@	$(GLIB_LIBS) 						\
-@BUILD_KERBEROS_TRUE@	$(GTK_LIBS)						\
-@BUILD_KERBEROS_TRUE@	$(KRB5_LIBS)						\
-@BUILD_KERBEROS_TRUE@	$(GCR_LIBS)						\
-@BUILD_KERBEROS_TRUE@	$(NULL)
+@BUILD_IDENTITY_SERVICE_TRUE@goa_identity_service_LDADD = \
+@BUILD_IDENTITY_SERVICE_TRUE@	$(top_builddir)/src/goa/libgoa-1.0.la			\
+@BUILD_IDENTITY_SERVICE_TRUE@	$(GLIB_LIBS) 						\
+@BUILD_IDENTITY_SERVICE_TRUE@	$(GTK_LIBS)						\
+@BUILD_IDENTITY_SERVICE_TRUE@	$(KRB5_LIBS)						\
+@BUILD_IDENTITY_SERVICE_TRUE@	$(GCR_LIBS)						\
+@BUILD_IDENTITY_SERVICE_TRUE@	$(NULL)
 
-@BUILD_KERBEROS_TRUE@goa_identity_service_LDFLAGS = \
-@BUILD_KERBEROS_TRUE@	$(WARN_LDFLAGS)						\
-@BUILD_KERBEROS_TRUE@	$(NULL)
+@BUILD_IDENTITY_SERVICE_TRUE@goa_identity_service_LDFLAGS = \
+@BUILD_IDENTITY_SERVICE_TRUE@	$(WARN_LDFLAGS)						\
+@BUILD_IDENTITY_SERVICE_TRUE@	$(NULL)
 
 all: $(BUILT_SOURCES)
 	$(MAKE) $(AM_MAKEFLAGS) all-am

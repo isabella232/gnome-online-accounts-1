@@ -1105,8 +1105,13 @@ get_all_providers_cb (GObject      *source,
 
   /* TODO: could check for @type */
 
-  if (!goa_provider_get_all_finish (&providers, res, NULL))
-    goto out;
+  error = NULL;
+  if (!goa_provider_get_all_finish (&providers, res, &error))
+    {
+      g_prefix_error (&error, "Error getting all providers: ");
+      g_dbus_method_invocation_take_error (data->invocation, error);
+      goto out;
+    }
 
   for (l = providers; l != NULL; l = l->next)
     {
@@ -1190,6 +1195,19 @@ get_all_providers_cb (GObject      *source,
 
               guid = g_dbus_connection_get_guid (data->daemon->connection);
               g_key_file_set_string (key_file, group, "SessionId", guid);
+            }
+          else
+            {
+              error = NULL;
+              if (!g_key_file_remove_key (key_file, group, "SessionId", &error))
+                {
+                  if (!g_error_matches (error, G_KEY_FILE_ERROR, G_KEY_FILE_ERROR_GROUP_NOT_FOUND)
+                      && !g_error_matches (error, G_KEY_FILE_ERROR, G_KEY_FILE_ERROR_KEY_NOT_FOUND))
+                    {
+                      g_dbus_method_invocation_take_error (data->invocation, error);
+                      goto out;
+                    }
+                }
             }
         }
 

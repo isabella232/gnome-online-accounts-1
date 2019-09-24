@@ -90,7 +90,10 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-@BUILD_KERBEROS_TRUE@am__append_1 = \
+@BUILD_FEDORA_TRUE@am__append_1 = \
+@BUILD_FEDORA_TRUE@	goafedoraprovider.h		goafedoraprovider.c
+
+@BUILD_KERBEROS_TRUE@am__append_2 = \
 @BUILD_KERBEROS_TRUE@	goakerberosprovider.h		goakerberosprovider.c
 
 subdir = src/goabackend
@@ -190,9 +193,12 @@ am__libgoa_backend_1_0_la_SOURCES_DIST = goabackend.h \
 	goawebview.c nautilus-floating-bar.h nautilus-floating-bar.c \
 	$(top_builddir)/src/goaidentity/org.gnome.Identity.c \
 	$(top_srcdir)/src/goaidentity/goaidentitymanagererror.c \
-	goakerberosprovider.h goakerberosprovider.c
+	goafedoraprovider.h goafedoraprovider.c goakerberosprovider.h \
+	goakerberosprovider.c
 am__objects_1 =
-@BUILD_KERBEROS_TRUE@am__objects_2 = libgoa_backend_1_0_la-goakerberosprovider.lo
+@BUILD_FEDORA_TRUE@am__objects_2 =  \
+@BUILD_FEDORA_TRUE@	libgoa_backend_1_0_la-goafedoraprovider.lo
+@BUILD_KERBEROS_TRUE@am__objects_3 = libgoa_backend_1_0_la-goakerberosprovider.lo
 am_libgoa_backend_1_0_la_OBJECTS =  \
 	libgoa_backend_1_0_la-goabackendenumtypes.lo \
 	libgoa_backend_1_0_la-goabackendinit.lo \
@@ -225,11 +231,11 @@ am_libgoa_backend_1_0_la_OBJECTS =  \
 	libgoa_backend_1_0_la-nautilus-floating-bar.lo \
 	libgoa_backend_1_0_la-org.gnome.Identity.lo \
 	libgoa_backend_1_0_la-goaidentitymanagererror.lo \
-	$(am__objects_1) $(am__objects_2)
-am__objects_3 = libgoa_backend_1_0_la-goadleynaservermanager.lo \
+	$(am__objects_1) $(am__objects_2) $(am__objects_3)
+am__objects_4 = libgoa_backend_1_0_la-goadleynaservermanager.lo \
 	libgoa_backend_1_0_la-goadleynaservermediadevice.lo \
 	$(am__objects_1)
-nodist_libgoa_backend_1_0_la_OBJECTS = $(am__objects_3) \
+nodist_libgoa_backend_1_0_la_OBJECTS = $(am__objects_4) \
 	$(am__objects_1)
 libgoa_backend_1_0_la_OBJECTS = $(am_libgoa_backend_1_0_la_OBJECTS) \
 	$(nodist_libgoa_backend_1_0_la_OBJECTS)
@@ -276,6 +282,7 @@ am__depfiles_remade =  \
 	./$(DEPDIR)/libgoa_backend_1_0_la-goaewsclient.Plo \
 	./$(DEPDIR)/libgoa_backend_1_0_la-goaexchangeprovider.Plo \
 	./$(DEPDIR)/libgoa_backend_1_0_la-goafacebookprovider.Plo \
+	./$(DEPDIR)/libgoa_backend_1_0_la-goafedoraprovider.Plo \
 	./$(DEPDIR)/libgoa_backend_1_0_la-goaflickrprovider.Plo \
 	./$(DEPDIR)/libgoa_backend_1_0_la-goafoursquareprovider.Plo \
 	./$(DEPDIR)/libgoa_backend_1_0_la-goagoogleprovider.Plo \
@@ -621,7 +628,7 @@ libgoa_backend_1_0_la_SOURCES = goabackend.h goabackendenums-priv.h \
 	goawebview.c nautilus-floating-bar.h nautilus-floating-bar.c \
 	$(top_builddir)/src/goaidentity/org.gnome.Identity.c \
 	$(top_srcdir)/src/goaidentity/goaidentitymanagererror.c \
-	$(NULL) $(am__append_1)
+	$(NULL) $(am__append_1) $(am__append_2)
 libgoa_backend_1_0_la_CFLAGS = \
 	$(WEBKIT_GTK_CFLAGS)					\
 	$(JSON_GLIB_CFLAGS)					\
@@ -824,6 +831,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libgoa_backend_1_0_la-goaewsclient.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libgoa_backend_1_0_la-goaexchangeprovider.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libgoa_backend_1_0_la-goafacebookprovider.Plo@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libgoa_backend_1_0_la-goafedoraprovider.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libgoa_backend_1_0_la-goaflickrprovider.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libgoa_backend_1_0_la-goafoursquareprovider.Plo@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libgoa_backend_1_0_la-goagoogleprovider.Plo@am__quote@ # am--include-marker
@@ -1097,6 +1105,13 @@ libgoa_backend_1_0_la-goaidentitymanagererror.lo: $(top_srcdir)/src/goaidentity/
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgoa_backend_1_0_la_CFLAGS) $(CFLAGS) -c -o libgoa_backend_1_0_la-goaidentitymanagererror.lo `test -f '$(top_srcdir)/src/goaidentity/goaidentitymanagererror.c' || echo '$(srcdir)/'`$(top_srcdir)/src/goaidentity/goaidentitymanagererror.c
 
+libgoa_backend_1_0_la-goafedoraprovider.lo: goafedoraprovider.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgoa_backend_1_0_la_CFLAGS) $(CFLAGS) -MT libgoa_backend_1_0_la-goafedoraprovider.lo -MD -MP -MF $(DEPDIR)/libgoa_backend_1_0_la-goafedoraprovider.Tpo -c -o libgoa_backend_1_0_la-goafedoraprovider.lo `test -f 'goafedoraprovider.c' || echo '$(srcdir)/'`goafedoraprovider.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libgoa_backend_1_0_la-goafedoraprovider.Tpo $(DEPDIR)/libgoa_backend_1_0_la-goafedoraprovider.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='goafedoraprovider.c' object='libgoa_backend_1_0_la-goafedoraprovider.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgoa_backend_1_0_la_CFLAGS) $(CFLAGS) -c -o libgoa_backend_1_0_la-goafedoraprovider.lo `test -f 'goafedoraprovider.c' || echo '$(srcdir)/'`goafedoraprovider.c
+
 libgoa_backend_1_0_la-goakerberosprovider.lo: goakerberosprovider.c
 @am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libgoa_backend_1_0_la_CFLAGS) $(CFLAGS) -MT libgoa_backend_1_0_la-goakerberosprovider.lo -MD -MP -MF $(DEPDIR)/libgoa_backend_1_0_la-goakerberosprovider.Tpo -c -o libgoa_backend_1_0_la-goakerberosprovider.lo `test -f 'goakerberosprovider.c' || echo '$(srcdir)/'`goakerberosprovider.c
 @am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/libgoa_backend_1_0_la-goakerberosprovider.Tpo $(DEPDIR)/libgoa_backend_1_0_la-goakerberosprovider.Plo
@@ -1320,6 +1335,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/libgoa_backend_1_0_la-goaewsclient.Plo
 	-rm -f ./$(DEPDIR)/libgoa_backend_1_0_la-goaexchangeprovider.Plo
 	-rm -f ./$(DEPDIR)/libgoa_backend_1_0_la-goafacebookprovider.Plo
+	-rm -f ./$(DEPDIR)/libgoa_backend_1_0_la-goafedoraprovider.Plo
 	-rm -f ./$(DEPDIR)/libgoa_backend_1_0_la-goaflickrprovider.Plo
 	-rm -f ./$(DEPDIR)/libgoa_backend_1_0_la-goafoursquareprovider.Plo
 	-rm -f ./$(DEPDIR)/libgoa_backend_1_0_la-goagoogleprovider.Plo
@@ -1402,6 +1418,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/libgoa_backend_1_0_la-goaewsclient.Plo
 	-rm -f ./$(DEPDIR)/libgoa_backend_1_0_la-goaexchangeprovider.Plo
 	-rm -f ./$(DEPDIR)/libgoa_backend_1_0_la-goafacebookprovider.Plo
+	-rm -f ./$(DEPDIR)/libgoa_backend_1_0_la-goafedoraprovider.Plo
 	-rm -f ./$(DEPDIR)/libgoa_backend_1_0_la-goaflickrprovider.Plo
 	-rm -f ./$(DEPDIR)/libgoa_backend_1_0_la-goafoursquareprovider.Plo
 	-rm -f ./$(DEPDIR)/libgoa_backend_1_0_la-goagoogleprovider.Plo
@@ -1489,6 +1506,7 @@ $(installwebextensionLTLIBRARIES): install-libLTLIBRARIES
 
 goadleynaservermanager.h goadleynaservermanager.c: goadleynaservermanager.xml
 	$(AM_V_GEN)gdbus-codegen						\
+		--c-generate-autocleanup all					\
 		--c-namespace DleynaServer					\
 		--generate-c-code goadleynaservermanager			\
 		--interface-prefix com.intel.dLeynaServer.			\
@@ -1496,6 +1514,7 @@ goadleynaservermanager.h goadleynaservermanager.c: goadleynaservermanager.xml
 
 goadleynaservermediadevice.h goadleynaservermediadevice.c: goadleynaservermediadevice.xml
 	$(AM_V_GEN)gdbus-codegen								\
+		--c-generate-autocleanup all							\
 		--c-namespace DleynaServer							\
 		--generate-c-code goadleynaservermediadevice					\
 		--interface-prefix com.intel.dLeynaServer.					\

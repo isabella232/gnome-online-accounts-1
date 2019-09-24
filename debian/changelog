@@ -1,8 +1,49 @@
-gnome-online-accounts (3.32.0-1ubuntu1pop1) disco; urgency=medium
+gnome-online-accounts (3.34.0-1ubuntu1pop1) eoan; urgency=medium
+
+  * New upstream release 
+
+ -- Michael Aaron Murphy <michael@system76.com>  Tue, 24 Sep 2019 13:33:24 -0600
+
+gnome-online-accounts (3.34.0-1ubuntu1) eoan; urgency=medium
+
+  * Merge with debian, remaining changes:
+    + debian/rules:
+      - Make sure that gnome-online-accounts.pot is refreshed so the
+        strings from 0001-ubuntu-sso-provider.patch are included (LP: #1759251).
+      - Build with --enable-ubuntu-sso
+    + debian/control.*:
+      - Add b-d on libsnapd-glib-dev
+      - depends on python3 and python3-macaroonbakery for the ubuntu sso
+        provider.
+    + debian/gnome-online-accounts.install:
+      install usr/share/goa-1.0/scripts/lpa_helper.py
+    + debian/libgoa-backend-1.0-1.symbols:
+      Add goa_ubuntu_sso_provider_get_type
+    + Ubuntu-specific patches:
+      - debian/patches/0001-ubuntu-sso-provider.patch
+      - debian/patches/0002-livepatch-auth.patch
+
+ -- Sebastien Bacher <seb128@ubuntu.com>  Fri, 13 Sep 2019 16:23:06 +0200
+
+gnome-online-accounts (3.34.0-1) experimental; urgency=medium
 
   * New upstream release
 
- -- Michael Aaron Murphy <michael@system76.com>  Tue, 09 Apr 2019 09:31:02 -0600
+ -- Sebastien Bacher <seb128@ubuntu.com>  Fri, 13 Sep 2019 16:17:23 +0200
+
+gnome-online-accounts (3.33.91-1) experimental; urgency=medium
+
+  * New upstream release
+    - owncloud: Use "Nextcloud", not "ownCloud", in user-visible errors
+    - webview: Make it more flexible in terms of its size
+    - kerberos: Use GTask's task data slot to leverage the compiler
+    - daemon: Return a D-Bus error if AddAccount fails to list all providers
+    - kerberos: Use GTask's task data slot to leverage the compiler
+    - build: Support the use of g_autolist with GoaObject
+    - Port to GTask from GSimpleAsyncResult
+  * debian/rules: Disable fedora account system
+
+ -- Marco Trevisan (Treviño) <marco@ubuntu.com>  Thu, 22 Aug 2019 00:55:51 +0200
 
 gnome-online-accounts (3.32.0-1ubuntu1) disco; urgency=medium
 

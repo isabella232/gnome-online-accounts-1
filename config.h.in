@@ -28,6 +28,15 @@
 /* ProviderType and extension point name */
 #undef GOA_FACEBOOK_NAME
 
+/* Enable Fedora Account System provider */
+#undef GOA_FEDORA_ENABLED
+
+/* ProviderType and extension point name */
+#undef GOA_FEDORA_NAME
+
+/* Kerberos realm used by the Fedora Account System */
+#undef GOA_FEDORA_REALM
+
 /* Flickr OAuth 1.0 consumer key */
 #undef GOA_FLICKR_CONSUMER_KEY
 

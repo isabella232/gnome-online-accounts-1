@@ -84,6 +84,10 @@ struct _GoaAccountIface
 
 };
 
+#if GLIB_CHECK_VERSION(2, 44, 0)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GoaAccount, g_object_unref)
+#endif
+
 GType goa_account_get_type (void) G_GNUC_CONST;
 
 GDBusInterfaceInfo *goa_account_interface_info (void);
@@ -344,6 +348,10 @@ struct _GoaOAuth2BasedIface
 
 };
 
+#if GLIB_CHECK_VERSION(2, 44, 0)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GoaOAuth2Based, g_object_unref)
+#endif
+
 GType goa_oauth2_based_get_type (void) G_GNUC_CONST;
 
 GDBusInterfaceInfo *goa_oauth2_based_interface_info (void);
@@ -523,6 +531,10 @@ struct _GoaOAuthBasedIface
 
 };
 
+#if GLIB_CHECK_VERSION(2, 44, 0)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GoaOAuthBased, g_object_unref)
+#endif
+
 GType goa_oauth_based_get_type (void) G_GNUC_CONST;
 
 GDBusInterfaceInfo *goa_oauth_based_interface_info (void);
@@ -701,6 +713,10 @@ struct _GoaPasswordBasedIface
 
 };
 
+#if GLIB_CHECK_VERSION(2, 44, 0)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GoaPasswordBased, g_object_unref)
+#endif
+
 GType goa_password_based_get_type (void) G_GNUC_CONST;
 
 GDBusInterfaceInfo *goa_password_based_interface_info (void);
@@ -868,6 +884,10 @@ struct _GoaManagerIface
     GVariant *arg_details);
 
 };
+
+#if GLIB_CHECK_VERSION(2, 44, 0)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GoaManager, g_object_unref)
+#endif
 
 GType goa_manager_get_type (void) G_GNUC_CONST;
 
@@ -1072,6 +1092,10 @@ struct _GoaMailIface
 
 };
 
+#if GLIB_CHECK_VERSION(2, 44, 0)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GoaMail, g_object_unref)
+#endif
+
 GType goa_mail_get_type (void) G_GNUC_CONST;
 
 GDBusInterfaceInfo *goa_mail_interface_info (void);
@@ -1266,6 +1290,10 @@ struct _GoaCalendarIface
 
 };
 
+#if GLIB_CHECK_VERSION(2, 44, 0)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GoaCalendar, g_object_unref)
+#endif
+
 GType goa_calendar_get_type (void) G_GNUC_CONST;
 
 GDBusInterfaceInfo *goa_calendar_interface_info (void);
@@ -1407,6 +1435,10 @@ struct _GoaContactsIface
 
 };
 
+#if GLIB_CHECK_VERSION(2, 44, 0)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GoaContacts, g_object_unref)
+#endif
+
 GType goa_contacts_get_type (void) G_GNUC_CONST;
 
 GDBusInterfaceInfo *goa_contacts_interface_info (void);
@@ -1543,6 +1575,10 @@ struct _GoaChatIface
   GTypeInterface parent_iface;
 };
 
+#if GLIB_CHECK_VERSION(2, 44, 0)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GoaChat, g_object_unref)
+#endif
+
 GType goa_chat_get_type (void) G_GNUC_CONST;
 
 GDBusInterfaceInfo *goa_chat_interface_info (void);
@@ -1669,6 +1705,10 @@ struct _GoaDocumentsIface
 {
   GTypeInterface parent_iface;
 };
+
+#if GLIB_CHECK_VERSION(2, 44, 0)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GoaDocuments, g_object_unref)
+#endif
 
 GType goa_documents_get_type (void) G_GNUC_CONST;
 
@@ -1797,6 +1837,10 @@ struct _GoaMapsIface
   GTypeInterface parent_iface;
 };
 
+#if GLIB_CHECK_VERSION(2, 44, 0)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GoaMaps, g_object_unref)
+#endif
+
 GType goa_maps_get_type (void) G_GNUC_CONST;
 
 GDBusInterfaceInfo *goa_maps_interface_info (void);
@@ -1924,6 +1968,10 @@ struct _GoaMusicIface
   GTypeInterface parent_iface;
 };
 
+#if GLIB_CHECK_VERSION(2, 44, 0)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GoaMusic, g_object_unref)
+#endif
+
 GType goa_music_get_type (void) G_GNUC_CONST;
 
 GDBusInterfaceInfo *goa_music_interface_info (void);
@@ -2050,6 +2098,10 @@ struct _GoaPhotosIface
 {
   GTypeInterface parent_iface;
 };
+
+#if GLIB_CHECK_VERSION(2, 44, 0)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GoaPhotos, g_object_unref)
+#endif
 
 GType goa_photos_get_type (void) G_GNUC_CONST;
 
@@ -2182,6 +2234,10 @@ struct _GoaFilesIface
   const gchar * (*get_uri) (GoaFiles *object);
 
 };
+
+#if GLIB_CHECK_VERSION(2, 44, 0)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GoaFiles, g_object_unref)
+#endif
 
 GType goa_files_get_type (void) G_GNUC_CONST;
 
@@ -2324,6 +2380,10 @@ struct _GoaExchangeIface
 
 };
 
+#if GLIB_CHECK_VERSION(2, 44, 0)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GoaExchange, g_object_unref)
+#endif
+
 GType goa_exchange_get_type (void) G_GNUC_CONST;
 
 GDBusInterfaceInfo *goa_exchange_interface_info (void);
@@ -2464,6 +2524,10 @@ struct _GoaMediaServerIface
   const gchar * (*get_udn) (GoaMediaServer *object);
 
 };
+
+#if GLIB_CHECK_VERSION(2, 44, 0)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GoaMediaServer, g_object_unref)
+#endif
 
 GType goa_media_server_get_type (void) G_GNUC_CONST;
 
@@ -2608,6 +2672,10 @@ struct _GoaTicketingIface
   GVariant * (*get_details) (GoaTicketing *object);
 
 };
+
+#if GLIB_CHECK_VERSION(2, 44, 0)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GoaTicketing, g_object_unref)
+#endif
 
 GType goa_ticketing_get_type (void) G_GNUC_CONST;
 
@@ -2768,6 +2836,10 @@ struct _GoaTodoIface
   GTypeInterface parent_iface;
 };
 
+#if GLIB_CHECK_VERSION(2, 44, 0)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GoaTodo, g_object_unref)
+#endif
+
 GType goa_todo_get_type (void) G_GNUC_CONST;
 
 GDBusInterfaceInfo *goa_todo_interface_info (void);
@@ -2894,6 +2966,10 @@ struct _GoaReadLaterIface
 {
   GTypeInterface parent_iface;
 };
+
+#if GLIB_CHECK_VERSION(2, 44, 0)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GoaReadLater, g_object_unref)
+#endif
 
 GType goa_read_later_get_type (void) G_GNUC_CONST;
 
@@ -3022,6 +3098,10 @@ struct _GoaPrintersIface
   GTypeInterface parent_iface;
 };
 
+#if GLIB_CHECK_VERSION(2, 44, 0)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GoaPrinters, g_object_unref)
+#endif
+
 GType goa_printers_get_type (void) G_GNUC_CONST;
 
 GDBusInterfaceInfo *goa_printers_interface_info (void);
@@ -3149,6 +3229,10 @@ struct _GoaObjectIface
 };
 
 GType goa_object_get_type (void) G_GNUC_CONST;
+
+#if GLIB_CHECK_VERSION(2, 44, 0)
+G_DEFINE_AUTOPTR_CLEANUP_FUNC (GoaObject, g_object_unref)
+#endif
 
 GoaAccount *goa_object_get_account (GoaObject *object);
 GoaOAuth2Based *goa_object_get_oauth2_based (GoaObject *object);
