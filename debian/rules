@@ -1,5 +1,9 @@
 #!/usr/bin/make -f
 
+export CCACHE_DISABLE=1
+
+
+
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 export DEB_LDFLAGS_MAINT_APPEND = -Wl,-O1 -Wl,-z,defs -Wl,--as-needed
 
@@ -29,8 +33,7 @@ override_dh_auto_configure:
 		--enable-owncloud \
 		--enable-imap-smtp \
 		--enable-exchange \
-		--enable-foursquare \
-		--enable-ubuntu-sso
+		--enable-foursquare
 
 override_dh_install:
 	find debian/tmp -name '*.a' -print -delete

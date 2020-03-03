@@ -32,7 +32,7 @@ Vcs-Browser: https://salsa.debian.org/gnome-team/gnome-online-accounts/tree/ubun
 Homepage: https://wiki.gnome.org/Projects/GnomeOnlineAccounts
 
 Package: gnome-online-accounts
-Architecture: any
+Architecture: amd64
 Depends: libgoa-1.0-0b (= ${binary:Version}),
          libgoa-backend-1.0-1 (= ${binary:Version}),
          python3,
@@ -47,7 +47,7 @@ Description: service to manage online accounts for the GNOME desktop
  GNOME desktop.
 
 Package: libgoa-1.0-0b
-Architecture: any
+Architecture: amd64
 Section: libs
 Depends: libgoa-1.0-common (>= ${source:Version}),
          ${misc:Depends},
@@ -64,7 +64,7 @@ Description: library for GNOME Online Accounts
  This package contains the libraries used by GOA applications.
 
 Package: libgoa-1.0-dev
-Architecture: any
+Architecture: amd64
 Section: libdevel
 Depends: gir1.2-goa-1.0 (= ${binary:Version}),
          libgoa-1.0-0b (= ${binary:Version}),
@@ -84,7 +84,7 @@ Description: library for GNOME Online Accounts - development files
  the service.
 
 Package: libgoa-backend-1.0-1
-Architecture: any
+Architecture: amd64
 Section: libs
 Depends: libgoa-1.0-common (>= ${source:Version}),
          ${misc:Depends},
@@ -99,7 +99,7 @@ Description: backend library for GNOME Online Accounts
  This package contains the backend libraries used by GOA applications.
 
 Package: libgoa-backend-1.0-dev
-Architecture: any
+Architecture: amd64
 Section: libdevel
 Depends: gir1.2-goa-1.0 (= ${binary:Version}),
          libgoa-backend-1.0-1 (= ${binary:Version}),
@@ -148,7 +148,7 @@ Description: library for GNOME Online Accounts - documentation files
  This package contains the HTML documentation for the GOA library.
 
 Package: gir1.2-goa-1.0
-Architecture: any
+Architecture: amd64
 Section: introspection
 Depends: ${gir:Depends},
          ${misc:Depends},

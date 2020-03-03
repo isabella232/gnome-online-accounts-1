@@ -215,7 +215,6 @@ libgoa-backend-1.0.so.1 libgoa-backend-1.0-1 #MINVER#
  goa_smtp_auth_new@Base 3.11.90
  goa_soup_logger_get_type@Base 3.25.90
  goa_soup_logger_new@Base 3.25.90
- goa_ubuntu_sso_provider_get_type@Base 3.27.3-1ubuntu1
  goa_util_account_notify_property_cb@Base 3.10.0
  goa_util_add_row_switch_from_keyfile_with_blurb@Base 3.10.0
  goa_util_add_row_widget@Base 3.10.0
