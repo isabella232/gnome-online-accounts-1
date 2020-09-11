@@ -1,3 +1,9 @@
+gnome-online-accounts (3.37.90-1ubuntu1pop0) groovy; urgency=medium
+
+  * Pop!_OS patches
+
+ -- Jeremy Soller <jeremy@system76.com>  Fri, 11 Sep 2020 10:02:06 -0600
+
 gnome-online-accounts (3.37.90-1ubuntu1) groovy; urgency=medium
 
   * Merge with debian, remaining changes:
